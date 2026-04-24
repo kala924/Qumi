@@ -8,21 +8,20 @@ on:
 
 jobs:
   build:
-
-
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [16.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+        node-version: [20.x]  # updated Node.js version
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4   # updated
+
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2
+      uses: actions/setup-node@v4   # updated
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+
     - run: npm install
     - run: npm start
